@@ -18,6 +18,7 @@ body {
 
 a {
 cursor: url('Images/cursor-select.cur'),auto;
+color: yellow;
 }
 
 img {
