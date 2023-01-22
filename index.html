@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title> the TERA zone </title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body onload="startTime()">
+
+  <div class="text0"> * You find a terminal of some sort... you decide to inspect it. </div>
+  <br><br><br>
+
+	<div class="crt">
+		<div class="backlight">
+			<div class="maindisplay">
+			
+
+				
+				<div class="statusbar"> <a href="index.html">@</a> <span id="currentTime" style="float:right; padding-right: 6px"></span> </div> 
+					<script> // get time
+						function startTime() {
+						const today = new Date();
+						let h = today.getHours();
+						let m = today.getMinutes();
+						let s = today.getSeconds();
+						m = checkTime(m);
+						s = checkTime(s);
+						document.getElementById('currentTime').innerHTML =  h + ":" + m + ":" + s;
+						setTimeout(startTime, 1000);
+						}
+						
+						function checkTime(i) {
+						if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+						return i;
+						}
+					</script>
+
+
+				 <br><br>
+				 <img src="Images/terazone.gif" style="filter: brightness(0.15); padding-left:20px" alt="welcome to the TERA ZONE">
+				 
+				 
+				 <br><br><br><br><br><br><br><br><br><br><br><br>
+				 <div class="text1" style="text-align:center">select one of the links to continue. </div>
+				 <br><br><br><br>
+				 <div class="text1" style="text-align:center; color:red">[ WORK IN PROGRESS. ] </div>
+      
+			</div>
+		</div>
+	<!-- <img src="Images/light.png"> -->
+	</div>
+</body>
+
+</html>

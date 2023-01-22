@@ -1,0 +1,83 @@
+/* ------- fonts ------- */
+
+@font-face {
+	font-family: "DOS";
+	src: url(Fonts/DOS437.ttf);
+}
+
+/* ------- styles ------- */
+
+body {
+	background-color:#000000;
+	background-image:url('Images/mainBackground.png');
+	background-repeat:no-repeat;
+	background-position:center;
+	background-attachment: fixed;
+	;
+}
+
+a {
+cursor: url('Images/cursor-select.cur'),auto;
+}
+
+img {
+filter: brightness(0.2);	
+}
+
+.text1 {
+ font-family: DOS; 
+ color:white;
+ font-size:32px;
+}
+
+.text0 {
+
+ font-family: DOS; 
+ color:blue;
+ font-size:32px;
+}
+
+.crt{	
+width: auto; /*2117*/
+height: 1252px;
+background-size:auto;
+background-image:url('Images/mainForeground.png');
+background-repeat:no-repeat;
+background-position:center;
+  /*display: block;
+  margin-left: auto;
+  margin-right: auto;*/
+  padding-top:345px;
+  
+}
+
+.backlight {
+filter: brightness(8);
+cursor: url('Images/cursor.cur'),auto;
+width: 800px;
+height: 600px;
+background-image:url('Images/pixely1.png');
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  outline: 6px solid #020202;
+
+}
+
+.maindisplay {
+
+mix-blend-mode:multiply;
+/*filter: brightness(4);*/
+width: 800px;
+height: 600px;
+background-image:url('Images/bg2.png');
+}
+
+.statusbar {
+font-family: DOS; 
+background-color:blue;
+color:white;
+font-size:32px;
+	
+}
+
