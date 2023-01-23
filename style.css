@@ -18,11 +18,31 @@ body {
 
 a {
 cursor: url('Images/cursor-select.cur'),auto;
-color: yellow;
+color:yellow;
+text-decoration:none;
 }
+
+a:hover{
+color:green;
+text-decoration:underline;
+}
+
+a:active{
+color:purple;
+text-decoration:underline;
+}
+
+
 
 img {
 filter: brightness(0.2);	
+}
+
+.text0 {
+
+ font-family: DOS; 
+ color:blue;
+ font-size:32px;
 }
 
 .text1 {
@@ -31,11 +51,11 @@ filter: brightness(0.2);
  font-size:32px;
 }
 
-.text0 {
-
+.text2 {
  font-family: DOS; 
- color:blue;
- font-size:32px;
+ color:#757575;
+ font-size:28px;
+ padding:10px;
 }
 
 .crt{	
@@ -53,11 +73,11 @@ background-position:center;
 }
 
 .backlight {
-filter: brightness(8);
+filter: brightness(4);
 cursor: url('Images/cursor.cur'),auto;
 width: 800px;
 height: 600px;
-background-image:url('Images/pixely1.png');
+background-image:url('Images/pixelyc.png');
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -79,6 +99,24 @@ font-family: DOS;
 background-color:blue;
 color:white;
 font-size:32px;
-	
 }
 
+.statusbar #links {
+display:none;
+padding:5px;
+position:absolute;
+width:99%;
+}
+
+.statusbar a:active #linkbut {
+	background-color:#000035;
+	font-size:10px;
+}
+
+.devlogimg{
+
+}
+
+.devlogimg:hover{
+
+}
