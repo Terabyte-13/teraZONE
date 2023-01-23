@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title> the TERA zone </title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body onload="startTime()">
+
+  <div class="text0"> * You find a terminal of some sort... you decide to inspect it. </div>
+  <br><br><br>
+
+	<div class="crt">
+		<div class="backlight">
+			<div class="maindisplay">
+			
+
+				<!-- status bar -->
+				<div class="statusbar"> <a id="linkbut" href="javascript:void(0);" onclick="haMenu()" style="background-color:#000045; padding-left:10px; padding-right:10px"><u>L</u>inks</a> <span id="currentTime" style="float:right; padding-right: 6px"></span>
+					<!-- links -->
+					<div id="links" style="background-color:#000025">
+						<a class="text2" href="index.html"><u>H</u>ome</a> <a class="text2" href="#link1"><u>D</u>ev Logs</a> <a class="text2" href="#link2"><u>A</u>rt</a> <a class="text2" href="#link3"><u>C</u>hatroom</a>
+					</div>
+				</div> 
+					
+					<script> // get time
+						function startTime() {
+						const today = new Date();
+						let h = today.getHours();
+						let m = today.getMinutes();
+						let s = today.getSeconds();
+						let dd = today.getDate();
+						let mm = today.getMonth() + 1;
+						let yy = today.getFullYear();
+						m = checkTime(m);
+						s = checkTime(s);
+						document.getElementById('currentTime').innerHTML = dd + "/" + mm + "/" + yy + " | " + h + ":" + m + ":" + s;
+						setTimeout(startTime, 1000);
+						}
+						
+						function checkTime(i) {
+						if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+						return i;
+						}
+					</script>
+					
+					<script> //hamburger menu
+						function haMenu(){
+							var linkbar = document.getElementById("links");
+							var linkbut = document.getElementById("linkbut");
+							if(linkbar.style.display === "block"){
+								linkbar.style.display = "none";
+								linkbut.style.backgroundColor = "#000045";
+							} else {
+								linkbar.style.display = "block";
+								linkbut.style.backgroundColor = "#000025";
+							}
+						}
+					</script>
+				<!-- status bar end -->
+
+				 <br><br>
+				 <img src="Images/terazone.gif" style="filter: brightness(0.15); padding-left:20px" alt="welcome to the TERA ZONE">
+				 
+				 
+				 <br><br><br><br><br>
+				 <div class="text1" style="text-align:center">select one of the links to continue. </div>
+				 <br><br><br><br>
+				 
+				 <!-- devlogs button -->
+				 <a class="devlogimg" href="", style="padding-left:75px"> <img src="Gifs/joystick.gif" alt="dev logs"> <span class="text2" style=""> dev logs </span> </a>
+      
+				 <!-- art button -->
+				 <a href="", style="padding-left:220px"> <img src="Gifs/paintbrush.gif" alt="art"> <span class="text2" style="text-align:center"> art </span> </a>
+				 
+				 <!-- chatroom button --><br><br><br>
+				 <a href="", style="padding-left:220px"> <img src="Gifs/hello3d.gif" alt="chatroom"> <span class="text2" style="text-align:center"> chatroom </span> </a>
+			</div>
+		</div>
+	<!-- <img src="Images/light.png"> -->
+	</div>
+</body>
+
+    <script> // keep scroll position between pages
+        document.addEventListener("DOMContentLoaded", function(event) { 
+            var scrollpos = sessionStorage.getItem('scrollpos');
+            if (scrollpos) window.scrollTo(0, scrollpos);
+        });
+
+        window.onbeforeunload = function(e) {
+            sessionStorage.setItem('scrollpos', window.scrollY);
+        };
+    </script>
+	
+	<script> // audio bg	
+		var audio_file = new Audio('Sounds/pcloop.ogg')
+		audio_file.load()
+		audio_file.play()
+		audio_file.addEventListener('timeupdate', function(){
+			var buffer = .44
+			if(this.currentTime > this.duration - buffer){
+				this.currentTime = 0
+				this.play()
+		}
+	});
+	</script>
+
+</html>
