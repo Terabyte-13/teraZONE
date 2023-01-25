@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title> the TERA zone </title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body onload="startTime()">
+
+  <div class="text0"> * You find a terminal of some sort... you decide to inspect it. </div>
+  <br><br><br>
+
+	<div class="crt">
+		<div class="backlight">
+			<div class="maindisplay">
+			
+
+				<!-- status bar -->
+				<div class="statusbar"> <a id="linkbut" href="javascript:void(0);" onclick="haMenu()" style="background-color:#000045; padding-left:10px; padding-right:10px"><u>L</u>inks</a> <span id="currentTime" style="float:right; padding-right: 6px"></span>
+					<!-- links -->
+					<div id="links" style="background-color:#000025">
+						<a class="text2" href="index.html"><u>H</u>ome</a> <a class="text2" href="devlogs.html"><u>D</u>ev Logs</a> <a class="text2" href="art.html"><u>A</u>rt</a> <a class="text2" href="chatroom.html"><u>C</u>hatroom</a> <a class="text2" href="coolsites.html">Cool <u>S</u>ites</a>
+					</div>
+				</div> 
+					
+					<script> //hamburger menu
+						function haMenu(){
+							var linkbar = document.getElementById("links");
+							var linkbut = document.getElementById("linkbut");
+							if(linkbar.style.display === "block"){
+								linkbar.style.display = "none";
+								linkbut.style.backgroundColor = "#000045";
+							} else {
+								linkbar.style.display = "block";
+								linkbut.style.backgroundColor = "#000025";
+							}
+						}
+					</script>
+				<!-- status bar end -->
+
+				 <br><br>
+				 <img src="Images/terazone.gif" style="filter: brightness(0.15); padding-left:20px" alt="welcome to the TERA ZONE">
+				 <img src="Images/nomouse.png" height="165px" style="position:absolute; top:30px; right:30px; filter:brightness(0.5);">
+
+				 
+				 <br><br><br>
+				 <div class="text1" style="text-align:center">select one of the links to continue. </div>
+				 <br><br>
+				 
+				 	<div class="row">
+						<div class="column">
+							<a href="devlogs.html"> 
+								<!-- devlogs button -->
+								<img src="Gifs/joystick.gif" style="padding-left:150px">
+								<div class="text1" style="position:relative; left:140px"> dev logs </div>
+							</a>
+						</div>
+						<div class="column">
+							<a href="art.html"> 
+								<!-- art button -->
+								<img src="Gifs/paintbrush.gif" style="position:relative; left:255px; padding-top:40px">
+								<div class="text1" style="position:relative; left:260px;"> art </div>
+							</a>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="column3">
+							<a href="chatroom.html"> 
+								<!-- chatroom button -->
+								<img src="Gifs/hello3d.gif" style="padding-left:80px;">
+								<div class="text1" style="padding-left:100px"> chatroom </div>
+							</a>
+						</div>
+							<div class="column3">
+							<a href="javascript:void(0)" onclick="open('musicplayer.html', 'newWin', 'resize=0, width=424,height=175')"> <div class="text1" style="padding-left:200px">
+								<!-- music button -->
+								<img src="Gifs/note.gif" height=50px; style="padding-left:60px">
+								<div class="text1" style=""> Cool⠀<u>M</u>usic </div>
+							</a>
+						</div>
+						</div>
+							<div class="column3">
+							<a href="coolsites.html"> <div class="text1" style="padding-left:230px;">
+								<!-- music button -->
+								<img src="Gifs/coollinks2.gif" height=50px; style="padding-left:100px;">
+								<div class="text1" style="padding-left:80px"> Cool⠀Sites </div>
+							</a>
+						</div>
+					</div>
+<!-- end screen -->
+			</div>
+		</div>
+	<!-- <img src="Images/light.png"> -->
+	</div>
+</body>
+
+	<script> // get time
+						function startTime() {
+						const today = new Date();
+						let h = today.getHours();
+						let m = today.getMinutes();
+						let s = today.getSeconds();
+						let dd = today.getDate();
+						let mm = today.getMonth() + 1;
+						let yy = today.getFullYear();
+						m = checkTime(m);
+						s = checkTime(s);
+						document.getElementById('currentTime').innerHTML = dd + "/" + mm + "/" + yy + " | " + h + ":" + m + ":" + s;
+						setTimeout(startTime, 1000);
+						}
+						
+						function checkTime(i) {
+						if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+						return i;
+						}
+					</script>
+
+    <script> // keep scroll position between pages
+        document.addEventListener("DOMContentLoaded", function(event) { 
+            var scrollpos = sessionStorage.getItem('scrollpos');
+            if (scrollpos) window.scrollTo(0, scrollpos);
+        });
+
+        window.onbeforeunload = function(e) {
+            sessionStorage.setItem('scrollpos', window.scrollY);
+        };
+    </script>
+	
+	<script> // audio bg	
+		var audio_file = new Audio('Sounds/pcloopl.ogg')
+		audio_file.volume = 0.2
+		audio_file.load()
+		audio_file.play()
+		audio_file.addEventListener('timeupdate', function(){
+			var buffer = .44
+			if(this.currentTime > this.duration - buffer){
+				this.currentTime = 0
+				this.play()
+		}
+	});
+	</script>
+	<!--<script> // page start audio	
+		var audio_file = new Audio('Sounds/hdd1l.ogg')
+		//var audio_file2 = new Audio('Sounds/select1.ogg')
+		audio_file.volume = 0.2
+		audio_file.load()
+		audio_file.play()
+		//audio_file2.load()
+		//audio_file2.play()
+	</script>-->
+	
+	
+	<script> //audio for buttons
+      function playAudio(url) {
+		Sound = new Audio(url);
+		Sound.play();
+		Sound.volume = 0.2;
+      }
+    </script>
+	
+	<script>//keynav specific to this page
+	opend = false;
+	document.onkeydown = function (el) {
+		console.log(el.keyCode);
+		
+		if (el.keyCode == 77){
+			open('musicplayer.html', 'newWin', 'resize=0, width=424,height=175');
+		}
+		
+		if (el.keyCode == 76){
+			
+			
+			if (opend == false){
+				opend = true;
+			} else {
+				opend = false;
+			};
+			
+			console.log(open)
+			haMenu();
+		}
+		if (opend == true){
+		
+			if (el.keyCode == 68){ 
+			window.location = "devlogs.html";
+			}
+		
+			if (el.keyCode == 65){
+			window.location = "art.html";
+			}
+		
+			if (el.keyCode == 67){
+			window.location = "chatroom.html";
+			}
+			
+			if (el.keyCode == 72){
+			window.location = "index.html";
+			}
+			
+			if (el.keyCode == 83){
+			window.location = "coolsites.html";
+			}	
+		}
+			
+	};
+	</script>
+
+
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title> the TERA zone </title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body onload="startTime()">
+
+  <div class="text0"> * You find a terminal of some sort... you decide to inspect it. </div>
+  <br><br><br>
+
+	<div class="crt">
+		<div class="backlight">
+			<div class="maindisplay">
+			
+
+				<!-- status bar -->
+				<div class="statusbar"> <a id="linkbut" href="javascript:void(0);" onclick="haMenu()" style="background-color:#000045; padding-left:10px; padding-right:10px"><u>L</u>inks</a>>coolsites<span id="currentTime" style="float:right; padding-right: 6px"></span>
+					<!-- links -->
+					<div id="links" style="background-color:#000025">
+						<a class="text2" href="index.html"><u>H</u>ome</a> <a class="text2" href="devlogs.html"><u>D</u>ev Logs</a> <a class="text2" href="art.html"><u>A</u>rt</a> <a class="text2" href="chatroom.html"><u>C</u>hatroom</a> <a class="text2" href="coolsites.html">Cool <u>S</u>ites</a>
+						<div style="position:absolute; top:147px; color:purple; background-color:#000025; padding:5px; line-height:110%;">(<u>1</u>)</br></br>(<u>2</u>)</br></br>(<u>3</u>)</br></br></br>(<u>4</u>)</br></br>(<u>5</u>)</div>
+					</div>
+				</div> 
+					
+					<script> //hamburger menu
+						function haMenu(){
+							var linkbar = document.getElementById("links");
+							var linkbut = document.getElementById("linkbut");
+							if(linkbar.style.display === "block"){
+								linkbar.style.display = "none";
+								linkbut.style.backgroundColor = "#000045";
+							} else {
+								linkbar.style.display = "block";
+								linkbut.style.backgroundColor = "#000025";
+							}
+						}
+					</script>
+				<!-- status bar end -->
+
+					<!--<div class="textBig"> Cool Links </div>-->
+					<img src="gifs/coollinks.gif" height="100px" style="filter:brightness(0.3); padding:20px">
+					<div class="text1"> 
+					
+						<a href="https://gifcities.org/"> Gifcities </a> by Internet Archive <br>
+						<div class="text3"> find COOL GIFS! A search engine for gifs archived from geocities. </div>
+
+						<a href="https://co.wukko.me"> cobalt </a> by wukko <br>
+						<div class="text3"> download videos from various websites without being tracked </div>
+						
+						<a href="http://bbs.retrocampus.com/"> retrocampus BBS </a>
+						<div class="text3"> very cool BBS on a commodore 64 emulator, all integrated in a webpage<br> it has news, games and even an internet browser </div>
+		
+						<a href="http://onj3.andrelouis.com/phonetones/"> phonetones </a>
+						<div class="text3"> A massive archive with a ton of phone ringtones and soundbanks </div>
+						
+						
+						<a href="https://archive.org/details/mac_MacOS_7.0.1_compilation"> Mac System 7.0.1 </a> @ archive.org<br>
+						<div class="text3"> Works straight away in your browser and has some neat games too. </div>
+						
+						<a href="coolsites2.html"> <img src="Gifs/next.gif" style="float:right"> </a>
+						
+				</div>
+	<!-- <img src="Images/light.png"> -->
+	</div>
+</body>
+
+	<script> // get time
+						function startTime() {
+						const today = new Date();
+						let h = today.getHours();
+						let m = today.getMinutes();
+						let s = today.getSeconds();
+						let dd = today.getDate();
+						let mm = today.getMonth() + 1;
+						let yy = today.getFullYear();
+						m = checkTime(m);
+						s = checkTime(s);
+						document.getElementById('currentTime').innerHTML = dd + "/" + mm + "/" + yy + " | " + h + ":" + m + ":" + s;
+						setTimeout(startTime, 1000);
+						}
+						
+						function checkTime(i) {
+						if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+						return i;
+						}
+					</script>
+
+    <script> // keep scroll position between pages
+        document.addEventListener("DOMContentLoaded", function(event) { 
+            var scrollpos = sessionStorage.getItem('scrollpos');
+            if (scrollpos) window.scrollTo(0, scrollpos);
+        });
+
+        window.onbeforeunload = function(e) {
+            sessionStorage.setItem('scrollpos', window.scrollY);
+        };
+    </script>
+	
+	<script> // audio bg	
+		var audio_file = new Audio('Sounds/pcloopl.ogg')
+		audio_file.volume = 0.2
+		audio_file.load()
+		audio_file.play()
+		audio_file.addEventListener('timeupdate', function(){
+			var buffer = .44
+			if(this.currentTime > this.duration - buffer){
+				this.currentTime = 0
+				this.play()
+		}
+	});
+	</script>
+	<script> // page start audio	
+		var audio_file = new Audio('Sounds/hdd1l.ogg')
+		//var audio_file2 = new Audio('Sounds/select1.ogg')
+		audio_file.volume = 0.2
+		audio_file.load()
+		audio_file.play()
+		//audio_file2.load()
+		//audio_file2.play()
+	</script>
+	
+	
+	<script> //audio for buttons
+      function playAudio(url) {
+		Sound = new Audio(url);
+		Sound.play();
+		Sound.volume = 0.2;
+      }
+    </script>
+	
+	<script>//keynav specific to this page
+	open = false;
+	document.onkeydown = function (el) {
+		console.log(el.keyCode);
+		
+		/*if (el.keyCode == 77){
+			Window.open('musicplayer.html', 'newWin', 'resize=0, width=424,height=175');
+		}*/
+		
+		if (el.keyCode == 76){
+			
+			
+			if (open == false){
+				open = true;
+			} else {
+				open = false;
+			};
+			
+			console.log(open)
+			haMenu();
+		}
+		if (open == true){
+		
+			if (el.keyCode == 68){ 
+			window.location = "devlogs.html";
+			}
+		
+			if (el.keyCode == 65){
+			window.location = "art.html";
+			}
+		
+			if (el.keyCode == 67){
+			window.location = "chatroom.html";
+			}
+			
+			if (el.keyCode == 72){
+			window.location = "index.html";
+			}
+			
+			if (el.keyCode == 83){
+			window.location = "coolsites.html";
+			}	
+			
+			//--
+			
+			if (el.keyCode == 49){
+			window.location = "https://gifcities.org/";
+			}
+			if (el.keyCode == 50){
+			window.location = "https://co.wukko.me";
+			}	
+			if (el.keyCode == 51){
+			window.location = "http://bbs.retrocampus.com/";
+			}	
+			if (el.keyCode == 52){
+			window.location = "http://onj3.andrelouis.com/phonetones/";
+			}	
+			if (el.keyCode == 53){
+			window.location = "https://archive.org/details/mac_MacOS_7.0.1_compilation";
+			}					
+		}
+			
+	};
+</script>
+
+	
+	
+	</script>
+
+</html>

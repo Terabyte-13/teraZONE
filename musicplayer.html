@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title> COOL Music Player </title>
+	<link rel="stylesheet" href="style.css">
+	
+	<style>
+	@font-face {
+	font-family:"sevensegment";
+	src: url(Fonts/sevensegment.ttf);
+	}
+	
+	.mainBox {
+	width:407px;
+	height:155px;
+	background-color:#121212;
+	cursor: url('Images/cursor.cur'),auto;
+	background-image: url('Images/mp3skinhq.png');
+	}
+	
+	.display {
+	width:380px;
+	height:45px;
+	background-color:black;
+	position:relative;
+	top:10px;
+	left:7px;
+	font-family: sevensegment;
+	color:black;
+	font-size:42px;
+	background-image:url('Images/lcd.png');
+	text-shadow: 2px 2px 4px black;
+	top:16px;
+	left:13px;
+	}
+	
+	.button1 {
+	font-family: DOS;
+	font-size:32px;
+	color:#ababab;
+	position:relative;
+	bottom:-67px;
+	left:25px;
+	width:20%;
+	}
+	
+	.button2 {
+	font-family: DOS;
+	font-size:32px;
+	color:#ababab;
+	position:relative;
+	bottom:-25px;
+	left:123px;
+	width:23%;
+	}
+	
+	.pbar {
+	position:relative;
+	top:25px;
+	left:5px;
+	width:97%;
+	height:20%;
+	}
+
+	</style>
+	
+	</head>
+	
+	<body>
+	
+	<div class="mainBox"> 
+	
+		<div class="display">
+		 <marquee direction="left" width="380px"> >> now playing  << TERASCOP >> by AXOLWARE </marquee>
+		</div>
+		
+
+		<audio id="terascop" autoplay loop>
+			<source src="sounds/terascop.mp3">
+		</audio>
+		
+		<div class="button1">
+		<a href="javascript:void(0);" onclick="playAudio()" style="color:#58855f">
+		>⠀⠀
+		</a>
+		</div>
+		
+		<div class="button2">
+		<a href="javascript:void(0);" onclick="pauseAudio()" style="color:#58855f">
+		||⠀⠀
+		</a>
+		</div>
+	
+	</div>
+	
+	</body>
+	
+	<script>
+	terascop = document.getElementById("terascop")
+	
+	function playAudio() {terascop.play();}
+	function pauseAudio() {terascop.pause();}
+
+	</script>
